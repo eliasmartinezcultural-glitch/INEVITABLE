@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101416">
+<title>INEVITABLE — San Patricio del Chañar</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <div class="grain"></div>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">I</span><div><strong>INEVITABLE</strong><small>SAN PATRICIO DEL CHAÑAR</small></div></div>
+    <div class="era"><span>SIMULACIÓN HISTÓRICA</span><b>1968</b></div>
+  </header>
+
+  <main class="hero">
+    <section class="hero-copy">
+      <p class="eyebrow">UNA TIERRA · UNA DECISIÓN · UN PUEBLO</p>
+      <h1>CONSTRUÍ<br><em>LA HISTORIA.</em></h1>
+      <p class="intro">El Chañar todavía no es el pueblo que conocés. El territorio está ahí. El agua también. Lo que hagas con ellos cambiará la línea que vas a recorrer.</p>
+      <button id="startBtn" class="primary">COMENZAR LA HISTORIA <span>→</span></button>
+      <div class="facts"><span><b>1968</b> territorio en transformación</span><span><b>21.05.1973</b> hito histórico fijo</span></div>
+    </section>
+
+    <section class="world-preview" aria-label="Vista previa del territorio">
+      <div class="sun"></div>
+      <div class="mountains m1"></div><div class="mountains m2"></div>
+      <div class="ground"></div>
+      <svg class="territory" viewBox="0 0 700 500" aria-hidden="true">
+        <path class="river" d="M-20 150 C130 80 170 220 285 170 S490 70 720 135"/>
+        <path class="river-glow" d="M-20 150 C130 80 170 220 285 170 S490 70 720 135"/>
+        <path class="future-road" d="M120 440 C210 350 270 340 350 280 S510 230 640 165"/>
+        <g class="plots">
+          <path d="M165 330 L260 300 L280 365 L185 395Z"/><path d="M275 295 L370 268 L392 330 L288 360Z"/>
+          <path d="M190 405 L288 372 L310 440 L210 465Z"/><path d="M305 368 L410 338 L435 405 L325 438Z"/>
+        </g>
+        <g class="markers">
+          <circle cx="350" cy="280" r="8"/><circle cx="120" cy="440" r="6"/><circle cx="520" cy="230" r="6"/>
+        </g>
+      </svg>
+      <div class="map-label l1">RÍO NEUQUÉN</div>
+      <div class="map-label l2">TIERRAS A TRANSFORMAR</div>
+      <div class="map-label l3">POSIBLE TRAZADO</div>
+      <div class="compass">N</div>
+    </section>
+  </main>
+
+  <section id="introPanel" class="intro-panel">
+    <div class="panel-inner">
+      <div class="panel-kicker">CAPÍTULO I · 1968</div>
+      <h2>HACER POSIBLE<br><span>EL AGUA.</span></h2>
+      <p>Antes de las casas, antes de las calles, antes del pueblo: territorio, riego y decisiones.</p>
+      <div class="system-row"><div><b>01</b><span>CONOCÉ EL TERRENO</span></div><div><b>02</b><span>DECIDÍ DÓNDE LLEVAR EL AGUA</span></div><div><b>03</b><span>OBSERVÁ QUÉ CAMBIA</span></div></div>
+      <button id="enterBtn" class="primary">ENTRAR AL TERRITORIO <span>→</span></button>
+    </div>
+  </section>
+
+  <section id="game" class="game hidden">
+    <div class="game-map">
+      <div class="map-sky"></div><div class="map-hills"></div>
+      <svg id="gameMap" viewBox="0 0 1200 720" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="water" x1="0" x2="1"><stop stop-color="#6ca6ae"/><stop offset="1" stop-color="#2e5963"/></linearGradient>
+          <filter id="soft"><feGaussianBlur stdDeviation="2"/></filter>
+        </defs>
+        <rect width="1200" height="720" fill="#9a8b69"/>
+        <path d="M0 120 Q220 30 390 145 T760 95 T1200 145 L1200 0 L0 0Z" fill="#62624d" opacity=".55"/>
+        <path d="M-40 240 Q180 120 360 220 T700 180 T1240 230 L1240 310 Q970 250 730 300 T340 290 T-40 340Z" fill="#78805e" opacity=".5"/>
+        <path class="big-river" d="M-30 520 C180 430 280 600 470 500 S800 350 1230 430 L1230 535 C850 465 720 590 490 600 S180 500 -30 620Z" fill="url(#water)"/>
+        <g id="plotsGame"></g>
+        <path id="road" d="M80 650 C260 585 350 570 490 500 S760 390 1110 300" fill="none" stroke="#bda77b" stroke-width="22" opacity=".65"/>
+        <path id="canal" d="M130 600 C300 520 430 455 570 410 S780 350 1010 320" fill="none" stroke="#7bb8bb" stroke-width="8" opacity="0"/>
+        <g id="buildings"></g>
+        <g id="workers"></g>
+      </svg>
+      <div class="map-vignette"></div>
+      <div class="map-controls"><button>+</button><button>−</button><button>◎</button></div>
+      <div class="location-tag"><span></span> EL CHAÑAR · TERRITORIO DE SIMULACIÓN</div>
+    </div>
+    <aside class="hud">
+      <div class="hud-top"><div><small>AÑO</small><strong id="year">1968</strong></div><div><small>FASE</small><strong>AGUA</strong></div><button id="closeGame">×</button></div>
+      <div class="stats"><div><span>💧</span><b id="waterStat">42</b><small>CAPACIDAD</small></div><div><span>▦</span><b id="landStat">18</b><small>TIERRA</small></div><div><span>👥</span><b id="peopleStat">12</b><small>TRABAJADORES</small></div></div>
+      <div class="mission">
+        <p>OBJETIVO ACTUAL</p><h3>HACER POSIBLE<br>EL AGUA</h3>
+        <span>Elegí una estrategia para comenzar la transformación.</span>
+      </div>
+      <div class="choices">
+        <button class="choice" data-choice="water"><i>01</i><strong>PRIORIZAR EL AGUA</strong><small>Mayor capacidad futura · menor crecimiento inmediato</small><em>→</em></button>
+        <button class="choice" data-choice="land"><i>02</i><strong>PREPARAR LA TIERRA</strong><small>Más producción potencial · mayor demanda hídrica</small><em>→</em></button>
+        <button class="choice" data-choice="people"><i>03</i><strong>ASENTAR TRABAJADORES</strong><small>Más comunidad · menos capacidad inicial</small><em>→</em></button>
+      </div>
+      <div id="feedback" class="feedback"></div>
+      <div class="legend"><span><i class="dot water-dot"></i> agua</span><span><i class="dot land-dot"></i> tierra</span><span><i class="dot build-dot"></i> obra</span></div>
+    </aside>
+  </section>
+
+  <footer class="footer"><span>INEVITABLE</span><span>DESARROLLO · OCARINA PRODUCCIONES / ELÍAS MARTÍNEZ</span><span>V.0.1 · DISEÑO FUNDACIONAL</span></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
